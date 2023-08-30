@@ -9,7 +9,7 @@ import (
     "strings"
 )
 
-func getValidCharacters(s string, indices []int) map[int]string {
+func GetValidCharacters(s string, indices []int) map[int]string {
     result := make(map[int]string)
     for i, rune := range s {
         if slices.Contains(indices, i) && string(rune) != " " {
@@ -20,7 +20,7 @@ func getValidCharacters(s string, indices []int) map[int]string {
     return result
 }
 
-func reversedSlice(s []string) []string {
+func ReversedSlice(s []string) []string {
     result := []string{}
     for i := len(s) - 1; i >= 0; i-- {
         result = append(result, s[i])
@@ -40,7 +40,7 @@ func One() {
     for i := 0; i < 9; i ++ {
         scanner.Scan()
         line := scanner.Text()
-        lookup := getValidCharacters(line, indices)
+        lookup := GetValidCharacters(line, indices)
         cache = append(cache, lookup)
     }
     indexLookup := cache[len(cache) - 1]
@@ -57,7 +57,7 @@ func One() {
         }
     }
     for key, values := range boxes {
-        boxes[key] = reversedSlice(values)
+        boxes[key] = ReversedSlice(values)
     }
     fmt.Println(boxes)
     scanner.Scan()
@@ -72,7 +72,7 @@ func One() {
         dest, err := strconv.Atoi(parts[5])
         Check(err)
         indexToMove := len(boxes[source]) - num
-        newBoxes := reversedSlice(boxes[source][indexToMove:])
+        newBoxes := ReversedSlice(boxes[source][indexToMove:])
         boxes[source] = boxes[source][:indexToMove]
         boxes[dest] = append(boxes[dest], newBoxes...)
     }
