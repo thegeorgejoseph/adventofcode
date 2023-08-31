@@ -27,6 +27,6 @@ func main() {
     if args == "one" {
         fmt.Println(One(ReadInput()))
     } else {
-        Two(ReadInput())
+        fmt.Println(Two(ReadInput()))
     }
 }

@@ -7,7 +7,7 @@ func One(s string) int {
 
     for right < len(s) {
         if _, ok := cache[string(s[right])]; !ok {
-           if (right - left + 1) == 4 {
+           if (right - left + 1) == 14 {
                break
            }
            cache[string(s[right])] = true
